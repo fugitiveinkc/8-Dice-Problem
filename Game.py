@@ -5,7 +5,7 @@ Title: Adventures in Probability
 Objective: To address the question of expected value with 8 dice and rerolls on blanks (from game played at olive game night)
 
 '''
-
+import matplotlib.pyplot as plt
 from Dice import dice
 
 #1) Set up dice: elements
@@ -45,12 +45,17 @@ for n in range(0, number_of_rolls):
 			die.roll()
 		die_sum += die.face
 	data1[die_sum] += 1
-		
+
+plt.plot(data.keys(), [data[x] for x in data.keys()], 'g^', data1.keys(), [data1[x] for x in data1.keys()], 'ro')
+plt.xlabel('Possible dice sums')
+plt.ylabel('Frequency')
+plt.title('Frequency distribution of 8 dice')
+plt.show()
 print "This is the data with no reroll: " + str(data)
 print "This is the data with a reroll for blanks: " + str(data1)
 
 #Probabilistic analysis
-#1) Plot Histogram
+#1) Plot Histogram (What libraries to use?)
 #2) Expected Value
 #3) Variance and Standard Deviation
 
