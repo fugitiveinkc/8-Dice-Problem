@@ -46,11 +46,6 @@ for n in range(0, number_of_rolls):
 		die_sum += die.face
 	data1[die_sum] += 1
 
-plt.plot(data.keys(), [data[x] for x in data.keys()], 'g^', data1.keys(), [data1[x] for x in data1.keys()], 'ro')
-plt.xlabel('Possible dice sums')
-plt.ylabel('Frequency')
-plt.title('Frequency distribution of 8 dice')
-plt.show()
 print "This is the data with no reroll: " + str(data)
 print "This is the data with a reroll for blanks: " + str(data1)
 
@@ -67,3 +62,11 @@ print "The probabilities with no reroll: " + str(p)
 print "The expected value with no reroll: " + str(ex)
 print "The probabilities with a reroll on blanks: " + str(p1)
 print "The expected value with a reroll on blanks: " + str(ex1)
+
+plt.plot(data.keys(), [data[x] for x in data.keys()], 'g^', data1.keys(), [data1[x] for x in data1.keys()], 'ro')
+plt.xlabel('Possible dice sums with 8 dice')
+plt.ylabel('Frequency')
+plt.title('Frequency distribution of 8 dice')
+plt.text(0.5, 17000, 'No reroll --> E(x) = ' + str(ex))
+plt.text(1, 20000, 'Reroll --> E(x) = ' + str(ex1))
+plt.savefig('test.png')
